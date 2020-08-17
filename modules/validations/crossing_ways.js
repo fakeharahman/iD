@@ -169,13 +169,24 @@ export function validationCrossingWays(context) {
             var featureTypes = [featureType1, featureType2];
             if (featureTypes.indexOf('highway') !== -1) {
                 if (featureTypes.indexOf('railway') !== -1) {
+                    if (!bothLines) return {};
+
+                    var isTram = entity1.tags.railway === 'tram' || entity2.tags.railway === 'tram';
+
                     if (osmPathHighwayTagValues[entity1.tags.highway] ||
                         osmPathHighwayTagValues[entity2.tags.highway]) {
-                        // path-rail connections use this tag
-                        return bothLines ? { railway: 'crossing' } : {};
+
+                        // path-tram connections use this tag
+                        if (isTram) return { railway: 'tram_crossing' };
+
+                        // other path-rail connections use this tag
+                        return { railway: 'crossing' };
                     } else {
-                        // road-rail connections use this tag
-                        return bothLines ? { railway: 'level_crossing' } : {};
+                        // path-tram connections use this tag
+                        if (isTram) return { railway: 'tram_level_crossing' };
+
+                        // other road-rail connections use this tag
+                        return { railway: 'level_crossing' };
                     }
                 }
 
@@ -453,12 +464,12 @@ export function validationCrossingWays(context) {
                 } else if (context.graph().geometry(this.entityIds[0]) === 'line' &&
                     context.graph().geometry(this.entityIds[1]) === 'line') {
 
-                    // don't recommend adding bridges to waterways since they're uncommmon
+                    // don't recommend adding bridges to waterways since they're uncommon
                     if (allowsBridge(selectedFeatureType) && selectedFeatureType !== 'waterway') {
                         fixes.push(makeAddBridgeOrTunnelFix('add_a_bridge', 'temaki-bridge', 'bridge'));
                     }
 
-                    // don't recommend adding tunnels under waterways since they're uncommmon
+                    // don't recommend adding tunnels under waterways since they're uncommon
                     var skipTunnelFix = otherFeatureType === 'waterway' && selectedFeatureType !== 'waterway';
                     if (allowsTunnel(selectedFeatureType) && !skipTunnelFix) {
                         fixes.push(makeAddBridgeOrTunnelFix('add_a_tunnel', 'temaki-tunnel', 'tunnel'));

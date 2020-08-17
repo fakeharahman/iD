@@ -4153,6 +4153,7 @@
                 },
                 "oneway": {
                     "label": "One Way",
+                    "terms": "bidirectional,oneway,unidirectional",
                     "options": {
                         "undefined": "Assumed to be No",
                         "yes": "Yes",
@@ -9280,6 +9281,14 @@
                     "name": "Train Wash",
                     "terms": "wash,clean"
                 },
+                "railway/tram_crossing": {
+                    "name": "Tram Crossing (Path)",
+                    "terms": "crossing,grade crossing,level crossing,pedestrian crossing,streetcar crossing,tramway crossing,trolley crossing"
+                },
+                "railway/tram_level_crossing": {
+                    "name": "Tram Crossing (Road)",
+                    "terms": "crossing,grade crossing,level crossing,pedestrian crossing,streetcar crossing,tramway crossing,trolley crossing"
+                },
                 "railway/tram": {
                     "name": "Tram Track",
                     "terms": "electric street railway,light rail,streetcar,tramway,trolley"
@@ -9855,7 +9864,7 @@
                 },
                 "shop/scuba_diving": {
                     "name": "Scuba Diving Shop",
-                    "terms": "diving,scuba"
+                    "terms": "diving,scuba,snorkel"
                 },
                 "shop/seafood": {
                     "name": "Seafood Shop",

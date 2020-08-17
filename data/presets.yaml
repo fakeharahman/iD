@@ -1623,6 +1623,8 @@ en:
           undefined: Assumed to be No
           # oneway=yes
           'yes': 'Yes'
+        # 'terms: bidirectional,oneway,unidirectional'
+        terms: '[translate with synonyms or related terms for ''One Way'', separated by commas]'
       oneway/bicycle:
         # 'oneway:bicycle=*'
         label: One Way (Bicycles)
@@ -7678,6 +7680,16 @@ en:
         name: Tram Track
         # 'terms: electric street railway,light rail,streetcar,tramway,trolley'
         terms: '<translate with synonyms or related terms for ''Tram Track'', separated by commas>'
+      railway/tram_crossing:
+        # railway=tram_crossing
+        name: Tram Crossing (Path)
+        # 'terms: crossing,grade crossing,level crossing,pedestrian crossing,streetcar crossing,tramway crossing,trolley crossing'
+        terms: '<translate with synonyms or related terms for ''Tram Crossing (Path)'', separated by commas>'
+      railway/tram_level_crossing:
+        # railway=tram_level_crossing
+        name: Tram Crossing (Road)
+        # 'terms: crossing,grade crossing,level crossing,pedestrian crossing,streetcar crossing,tramway crossing,trolley crossing'
+        terms: '<translate with synonyms or related terms for ''Tram Crossing (Road)'', separated by commas>'
       railway/tram_stop:
         # railway=tram_stop
         name: Tram Stopping Position
@@ -8357,7 +8369,7 @@ en:
       shop/scuba_diving:
         # shop=scuba_diving
         name: Scuba Diving Shop
-        # 'terms: diving,scuba'
+        # 'terms: diving,scuba,snorkel'
         terms: '<translate with synonyms or related terms for ''Scuba Diving Shop'', separated by commas>'
       shop/seafood:
         # shop=seafood
